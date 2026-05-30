@@ -12,7 +12,6 @@ type Props = {
 };
 
 export function CodeViewer({ file, findings, activeLine }: Props) {
-  const lines = file.code.replace(/\n+$/, "").split("\n");
   const activeRef = useRef<HTMLDivElement>(null);
 
   // 行 → その行を含む finding（範囲は start..end）。先勝ちで1件。
@@ -40,7 +39,7 @@ export function CodeViewer({ file, findings, activeLine }: Props) {
     <div className="h-[460px] overflow-auto rounded-xl border border-ink-700 bg-ink-950 font-mono text-[12.5px] leading-[1.6]">
       <table className="w-full border-collapse">
         <tbody>
-          {lines.map((text, i) => {
+          {file.lines.map((tokens, i) => {
             const ln = i + 1;
             const finding = lineToFinding.get(ln);
             const style = finding ? CAT_STYLE[finding.category] : null;
@@ -62,8 +61,20 @@ export function CodeViewer({ file, findings, activeLine }: Props) {
                     <span className="w-12 shrink-0 select-none px-3 text-right text-knip-600">
                       {ln}
                     </span>
-                    <code className="whitespace-pre px-3 text-knip-200">
-                      {text || " "}
+                    <code className="whitespace-pre px-3">
+                      {tokens.length === 0
+                        ? " "
+                        : tokens.map((t, j) => (
+                            <span
+                              key={j}
+                              style={{
+                                color: t.color,
+                                fontStyle: t.italic ? "italic" : undefined,
+                              }}
+                            >
+                              {t.text}
+                            </span>
+                          ))}
                     </code>
                   </div>
                   {anns?.map((f, k) => {

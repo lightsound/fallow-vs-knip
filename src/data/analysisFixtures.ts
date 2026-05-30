@@ -68,10 +68,10 @@ export const analysisFixtures: {
           }
         ]
       },
-      "elapsed_ms": 41
+      "elapsed_ms": 90
     },
     "cli": "── Unused Code ─────────────────────────────────────\n\n● Unused files (1)\n  src/legacy/oldHelpers.ts\n  Files not reachable from any entry point — https://docs.fallow.tools/explanations/dead-code#unused-files\n\n● Unused exports (1)\n  src/utils/format.ts\n    :12 formatLegacy\n  Exported symbols with no known consumers — https://docs.fallow.tools/explanations/dead-code#unused-exports\n\n── Dependencies ─────────────────────────────────────\n\n● Unused dependencies (1)\n  lodash\n  Listed in dependencies but never imported — https://docs.fallow.tools/explanations/dead-code#unused-dependencies\n\n── Structure ─────────────────────────────────────\n\n● Circular dependencies (1)\n  src/services/moduleA.ts\n    → moduleB.ts → moduleA.ts\n\n  Import cycles that can cause initialization failures and prevent tree-shaking — https://docs.fallow.tools/explanations/dead-code#circular-dependencies\n\n● Duplicates (1 clone groups)\n\n     15 lines  2 instances\n    src/components/Banner.tsx:3-17\n    src/components/Card.tsx:3-17\n\n  Identical code blocks detected via suffix-array analysis — https://docs.fallow.tools/explanations/duplication#clone-groups\n\n■ Metrics: 188 LOC · dead files 11.1% · dead exports 8.3% · avg cyclomatic 2.6 · p90 cyclomatic 4 · maintainability 92.1 (good) · 0 churn hotspots · 1 circular dep · 1 unused dep\n\n● High complexity functions (1)\n  src/utils/math.ts\n    :12 computeHealthScore CRITICAL\n          23 cyclomatic   20 cognitive   42 lines\n         552.0 CRAP\n  Functions exceeding cyclomatic, cognitive, or CRAP thresholds (https://docs.fallow.tools/explanations/health#complexity-metrics)",
-    "elapsedMs": 645
+    "elapsedMs": 667
   },
   "knip": {
     "raw": {
@@ -120,6 +120,6 @@ export const analysisFixtures: {
       ]
     },
     "cli": "Unused files (1)\nsrc/legacy/oldHelpers.ts\nUnused dependencies (1)\nlodash  package.json:8:6\nUnused exports (1)\nformatLegacy  function  src/utils/format.ts:12:17",
-    "elapsedMs": 592
+    "elapsedMs": 618
   }
 };
