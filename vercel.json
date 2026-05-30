@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/analyze.ts": {
+      "includeFiles": "{analysis-sample/**,node_modules/**}",
+      "maxDuration": 30
+    }
+  }
+}

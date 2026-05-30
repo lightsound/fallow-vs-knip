@@ -4,6 +4,7 @@ import { BenchmarkRace } from "./components/BenchmarkRace.tsx";
 import { FeatureMatrix } from "./components/FeatureMatrix.tsx";
 import { ScopeDiagram } from "./components/ScopeDiagram.tsx";
 import { TerminalCompare } from "./components/TerminalCompare.tsx";
+import { CodeAnalysisLab } from "./components/CodeAnalysisLab.tsx";
 import { WhyFallow } from "./components/WhyFallow.tsx";
 import { duplicationBenchmarks, formatDuration } from "./data/benchmarks.ts";
 
@@ -11,6 +12,7 @@ const navItems = [
   { href: "#benchmark", label: "速度" },
   { href: "#features", label: "機能" },
   { href: "#scope", label: "守備範囲" },
+  { href: "#analyze", label: "解析デモ" },
   { href: "#cli", label: "CLI 出力" },
   { href: "#why", label: "なぜ Fallow" },
 ];
@@ -67,6 +69,15 @@ export function App() {
           description="knip が担うのはデッドコード／依存ハイジーンの層。Fallow はその上に重複・複雑度・アーキテクチャ・PR リスクを積み上げます。"
         >
           <ScopeDiagram />
+        </Section>
+
+        <Section
+          id="analyze"
+          eyebrow="Live Analysis"
+          title="同じコードを、その場で解析してみる"
+          description="左のサンプルコードに対して Fallow / knip の解析ボタンを押すと、何を・どこで検出するかがコード上に表示されます。同じコードでも、光る箇所の数がまるで違います。"
+        >
+          <CodeAnalysisLab />
         </Section>
 
         <Section

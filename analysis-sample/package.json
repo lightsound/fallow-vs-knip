@@ -1,0 +1,14 @@
+{
+  "name": "dashboard-sample",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "解析デモ用サンプル。両ツールの検出差が出るよう意図的に問題を仕込んである。",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0"
+  }
+}
