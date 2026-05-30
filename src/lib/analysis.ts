@@ -265,7 +265,9 @@ export async function runAnalysis(
         tool === "fallow"
           ? normalizeFallow(data.raw as FallowRaw)
           : normalizeKnip(data.raw as KnipRaw);
-      return { tool, findings, cli: data.cli, elapsedMs: data.elapsedMs, source: "live" };
+      // CLI の整形テキストは決定的なので、ライブが返さない場合はキャプチャ済みの実出力を使う。
+      const cli = data.cli && data.cli.trim() ? data.cli : analysisFixtures[tool].cli;
+      return { tool, findings, cli, elapsedMs: data.elapsedMs, source: "live" };
     } catch {
       // ライブ実行に失敗したら fixture にフォールバック（デモは止めない）
       return fromFixture(tool);
